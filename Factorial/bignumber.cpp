@@ -1,15 +1,20 @@
 #include "bignumber.h"
 
-BigNumber::BigNumber()
+BigNumber::~BigNumber()
 {
-    array.resize(1);
-    array[0] = 0;
+    array.clear();
 }
 
 BigNumber::BigNumber(int number)
 {
     array.resize(lenght(number));
     setVector(number);
+}
+
+BigNumber::BigNumber()
+{
+    array.resize(1);
+    array[0] = 0;
 }
 
 int BigNumber::lenght(int number)//počet číslic v čísle
@@ -35,10 +40,10 @@ void BigNumber::setVector(int number)
 
 void BigNumber::multiply(int number)
 {
-    int i = 0, carry = 0;
+    string::size_type i = 0, carry = 0;
     while(!(carry == 0 && i >= array.size()))
     {
-        if(i == (array.size()))
+        if(i == array.size())
             array.push_back(carry);
         else
             array[i] = ((number * array[i]) + carry);

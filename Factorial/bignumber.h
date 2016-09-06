@@ -13,6 +13,7 @@ private:
 public:
     BigNumber();
     BigNumber(int number);
+    ~BigNumber();
     void multiply(int number);
     void writeNumber();
     static int lenght(int number);
