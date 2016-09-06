@@ -31,10 +31,11 @@ int BigNumber::lenght(int number)//počet číslic v čísle
 
 void BigNumber::setVector(int number)
 {
-    for(int i = 0, dec = 10, leng = lenght(number); i <= leng; i++, dec * 10)
+    for(int i = 0, dec = 10, leng = lenght(number); i <= leng; i++)
     {
         array[i] = number % dec;
         number /= dec;
+        dec *=10;
     }
 }
 
