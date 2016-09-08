@@ -18,7 +18,7 @@ BigNumber::BigNumber()
 }
 
 int BigNumber::lenght(int number)//počet číslic v čísle
-{
+{ 
     int lenght = 0;
     while(number)
     {
@@ -31,15 +31,37 @@ int BigNumber::lenght(int number)//počet číslic v čísle
 
 void BigNumber::setVector(int number)
 {
-    for(int i = 0, dec = 10, leng = lenght(number); i <= leng; i++)
+    setVector(number, this->array);
+}
+
+void BigNumber::setVector(int number, vector<int> &array)
+{
+    for(int i = 0, dec = 10, leng = lenght(number); i < leng; i++)
     {
         array[i] = number % dec;
         number /= dec;
-        dec *=10;
     }
 }
 
 void BigNumber::multiply(int number)
+{
+    vector<int> num(lenght(number));
+    vector<int> arrHelp(array.size() + (num.size() - 1));
+    setVector(number, num);
+
+    for(string::size_type i = 0; i < num.size(); i++)
+    {
+        for(string::size_type j = 0; j < array.size(); j++)
+        {
+            arrHelp[i + j] += (num[i] * array[j]);
+        }
+    }
+
+    fixVector(arrHelp);
+    array = arrHelp;
+}
+
+void BigNumber::fixVector(vector<int> &array)
 {
     string::size_type i = 0, carry = 0;
     while(!(carry == 0 && i >= array.size()))
@@ -47,7 +69,7 @@ void BigNumber::multiply(int number)
         if(i == array.size())
             array.push_back(carry);
         else
-            array[i] = ((number * array[i]) + carry);
+            array[i] += carry;
 
         carry = array[i] / 10;
         array[i] -= carry * 10;

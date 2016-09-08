@@ -9,12 +9,13 @@ int main()
     int number;
     cin >> number;
 
+    //cout << 9999  10 << endl;
     BigNumber *bign = new BigNumber(number);
-    number--;
-    while(number >= 2)
+
+    while(number > 1)
     {
-        bign->multiply(number);
         number--;
+        bign->multiply(number);
     }
     bign->writeNumber();
 
