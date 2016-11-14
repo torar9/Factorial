@@ -9,7 +9,6 @@ int main()
     int number;
     cin >> number;
 
-    //cout << 9999  10 << endl;
     BigNumber *bign = new BigNumber(number);
 
     while(number > 1)
