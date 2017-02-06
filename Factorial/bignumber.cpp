@@ -43,13 +43,24 @@ void BigNumber::setVector(int number, vector<int> &array)
     }
 }
 
+void BigNumber::setArray(int number, int *array)
+{
+    for(int i = 0, dec = 10, leng = lenght(number); i < leng; i++)
+    {
+        array[i] = number % dec;
+        number /= dec;
+    }
+}
+
 void BigNumber::multiply(int number)
 {
-    vector<int> num(lenght(number));
-    vector<int> arrHelp(array.size() + (num.size() - 1));
-    setVector(number, num);
+    int Nlengh = lenght(number);
 
-    for(string::size_type i = 0; i < num.size(); i++)
+    int num[Nlengh];
+    setArray(number, num);
+    vector<int> arrHelp(array.size() + (Nlengh - 1));
+
+    for(string::size_type i = 0; i < Nlengh; i++)
     {
         for(string::size_type j = 0; j < array.size(); j++)
         {
