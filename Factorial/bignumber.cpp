@@ -17,7 +17,7 @@ BigNumber::BigNumber()
     array[0] = 0;
 }
 
-int BigNumber::lenght(int number)//počet číslic v čísle
+int BigNumber::lenght(int number)
 { 
     int lenght = 0;
     while(number)
