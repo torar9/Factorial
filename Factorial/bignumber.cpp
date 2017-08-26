@@ -55,8 +55,7 @@ void BigNumber::setArray(int number, int *array)
 void BigNumber::multiply(int number)
 {
     int Nlengh = lenght(number);
-
-    //int num[Nlengh];
+    
     vector<int>num;
     num.resize(Nlengh);
     setVector(number, num);
