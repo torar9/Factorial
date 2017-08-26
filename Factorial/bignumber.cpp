@@ -56,8 +56,10 @@ void BigNumber::multiply(int number)
 {
     int Nlengh = lenght(number);
 
-    int num[Nlengh];
-    setArray(number, num);
+    //int num[Nlengh];
+    vector<int>num;
+    num.resize(Nlengh);
+    setVector(number, num);
     vector<int> arrHelp(array.size() + (Nlengh - 1));
 
     for(string::size_type i = 0; i < Nlengh; i++)
