@@ -11,7 +11,7 @@ BigNumber::~BigNumber()
 */
 BigNumber::BigNumber(int number)
 {
-    array.resize(lenght(number));
+    array.resize(length(number));
     setVector(number);
 }
 
@@ -27,16 +27,16 @@ BigNumber::BigNumber()
 /*
 * Returns number of digits in [number]
 */
-int BigNumber::lenght(int number)
+int BigNumber::length(int number)
 {
-    int lenght = 0;
+    int length = 0;
     while(number)
     {
         number /= 10;
-        lenght++;
+        length++;
     }
 
-    return lenght;
+    return length;
 }
 
 /*
@@ -52,7 +52,7 @@ void BigNumber::setVector(int number)
 */
 void BigNumber::setVector(int number, vector<int> &array)
 {
-    for(int i = 0, dec = 10, leng = lenght(number); i < leng; i++)
+    for(int i = 0, dec = 10, leng = length(number); i < leng; i++)
     {
         array[i] = number % dec;
         number /= dec;
@@ -64,7 +64,7 @@ void BigNumber::setVector(int number, vector<int> &array)
 */
 void BigNumber::setArray(int number, int *array)
 {
-    for(int i = 0, dec = 10, leng = lenght(number); i < leng; i++)
+    for(int i = 0, dec = 10, leng = length(number); i < leng; i++)
     {
         array[i] = number % dec;
         number /= dec;
@@ -76,7 +76,7 @@ void BigNumber::setArray(int number, int *array)
 */
 void BigNumber::multiply(int number)
 {
-    int Nlengh = lenght(number);
+    int Nlengh = length(number);
 
     vector<int>num;
     num.resize(Nlengh);

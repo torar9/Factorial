@@ -22,7 +22,7 @@ public:
     void multiply(int number);
     void writeNumber();
     
-    static int lenght(int number);
+    static int length(int number);
 };
 
 #endif // BIGNUMBER_H
