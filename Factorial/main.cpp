@@ -9,15 +9,14 @@ int main()
     int number;
     cin >> number;
 
-    BigNumber *bign = new BigNumber(number);
+    BigNumber bign(number);
 
     while(number > 1)
     {
         number--;
-        bign->multiply(number);
+        bign.multiply(number);
     }
-    bign->writeNumber();
 
-    delete bign;
+    bign.writeNumber();
     return 0;
 }
